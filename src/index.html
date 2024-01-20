@@ -16,14 +16,16 @@
 </head>
 
 <body>
-  <form class="js-search search">
-    <input class="input-search" name="search" type="text" />
-    <button class="btn-search" type="submit">Search</button>
+
+  <form class="form" autocomplete="off">
+    <label for="searchTerm">
+      <input class="searchTerm" type="search" name="searchTerm" id="searchTerm" placeholder="Search images..." />
+    </label>
+    <button type="submit" class="search-btn">Search</button>
   </form>
-  <div class="container">
-    <span class="loader"></span>
-    <ul class="gallery"></ul>
-  </div>
+
+  <span class="loader"></span>
+  <div class="gallery"></div>
 
   <script type="module" src="./js/script.js"></script>
 </body>
