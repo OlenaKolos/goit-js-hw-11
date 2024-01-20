@@ -26,16 +26,20 @@ const simpleGallery = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-form.addEventListener('submit', event => {
-  event.preventDefault();
-  if (searchTerm.value.trim().length < 3) {
-    showAlert('Please, enter search term!');
-    return;
-  }
-  fetchPhotos()
-    .then(photos => renderPhotos(photos))
-    .catch(error => showAlert(error.toString()));
-});
+if (form) {
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (searchTerm.value.trim().length < 3) {
+      showAlert('Please, enter search term!');
+      return;
+    }
+    fetchPhotos()
+      .then(photos => renderPhotos(photos))
+      .catch(error => showAlert(error.toString()));
+  });
+} else {
+  console.error('Element with class .form not found');
+}
 
 function fetchPhotos() {
   gallery.textContent = '';
